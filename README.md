@@ -11,6 +11,7 @@ Challenges:
 -Had difficulty with averaging
 -being able to sequence between images.
 -adding information to original sequence
+-Had trouble reading in files that were in the original ppm. The program can read orion, but not ppms/orion. Don't know if I typed something wrong in the terminal, but sepearate files should work fine.
 
 
 How work was shared:
