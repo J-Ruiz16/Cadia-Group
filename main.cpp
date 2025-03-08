@@ -1,36 +1,26 @@
-/**
- * @file main.cpp
- * @author Jocelyn Ruiz
- * @date 2025-03-07
- * @brief outputs the stack class implementation while also interacting with the user prompting
- * 
- * asks user for which image file to open, asks how many images, then stacks however many images were entered
- *
- */
-
-#include "stacker.h"
 #include <iostream>
+#include "stacker.h"
 
-int main(){
-  std::string fname;
-  int numImage;
-  std::cout << "Please enter the image you wish to stack: ";
-  std::cin >> fname;
-  std::cout << "Please enter the number of images: ";
-  std::cin >> numImage;
+using namespace std;
 
-  std::cout << "Stacking images:" << std::endl;
+int main() {
+    string fname;
+    int numImage;
 
-  Stacker stacker;
+    cout << "Please enter the image you wish to stack: ";
+    cin >> fname;
 
-  int readImages = stacker.loadImage(fname);
-  int outputfile = stacker.outImage(fname);
+    cout << "Please enter the number of images: ";
+    cin >> numImage;
 
-  std::cout << readImages << std::endl;
-  std::cout << outputfile << std:: endl;
+    Stacker stacker;  
 
+    if (stacker.stackImage(fname, numImage) == 0) {
+        cout << "Stacking succeeded." << endl;
+        cout << "Output written to: " << fname << ".ppm" << endl;
+    } else {
+        cerr << "Stacking failed!" << endl;
+    }
 
-  std::cout << "Output written to: " << fname << std::endl;
-
-  return 0;
+    return 0;
 }
